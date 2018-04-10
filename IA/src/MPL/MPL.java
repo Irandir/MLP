@@ -46,7 +46,7 @@ public class MPL {
 		int qNS = 1;
 
 		// numero de epocas do treinamento
-		int epocas = 10;
+		int epocas = 100;
 
 		// pesos da camada entrada
 		double pesos[][] = {{0.1,0.2},{0.1,0.2},{0.1,0.2}};
