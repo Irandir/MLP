@@ -55,12 +55,12 @@ public class MLP {
 	
 	public static void main(String[] args) {
 		
-		int tamanhoDaJanela = 13;
+		int tamanhoDaJanela = 12;
 		// n --> taxa de aprendizagem
-		double n = 0.5;
+		double n = 0.2;
 
 		// qNE é o numero de neuronios da Camada de Escondida
-		int qNE = 4;
+		int qNE = 10;
 
 		// qNS é o numero de neuronios da Camada de Saida
 		int qNS = 1;
@@ -207,7 +207,7 @@ public class MLP {
 						netsO[i] += fnets[j] * pesosE[i][j];
 					}
 					netsO[i] += biasE[i];
-					fnetsO[i] = f(netsO[i]);
+					fnetsO[i] = netsO[i];
 
 				}
 				treino[y] = desnormalizar(fnetsO[0], min, max);
@@ -221,7 +221,8 @@ public class MLP {
 
 				// calculando o grandiete 0
 				for (int i = 0; i < g0.length; i++) {
-					g0[i] = erro[i] * fnetsO[i] * (1 - fnetsO[i]);
+					g0[i] = erro[i];
+					//g0[i] = erro[i] * fnetsO[i] * (1 - fnetsO[i]);
 					// System.out.println("g0 -->"+ g0[i]);
 				}
 
@@ -341,7 +342,7 @@ public class MLP {
 					netsO[i] += fnets[j] * pesosE[i][j];
 				}
 				netsO[i] += biasE[i];
-				fnetsO[i] = f(netsO[i]);
+				fnetsO[i] = netsO[i];
 			}
 			saidaVDesejada = desnormalizar(fnetsO[0], min, max);
 			validacao[c] = saidaVDesejada;
@@ -419,7 +420,7 @@ public class MLP {
 					netsO[i] += fnets[j] * pesosE[i][j];
 				}
 				netsO[i] += biasE[i];
-				fnetsO[i] = f(netsO[i]);
+				fnetsO[i] = netsO[i];
 			}
 			
 			saidaVDesejada = desnormalizar(fnetsO[0], min, max);
